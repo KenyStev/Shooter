@@ -4,12 +4,13 @@ Enemigo2::Enemigo2(SDL_Renderer *renderer)
 {
     this->renderer=renderer;
 
-    enemigo = IMG_LoadTexture(renderer, "Enemigo2.png");
+    textura = IMG_LoadTexture(renderer, "Enemigo2.png");
+    bala = IMG_LoadTexture(renderer, "bala1.png");
 
-    SDL_QueryTexture(enemigo,NULL,NULL,&rect_enemigo.w,&rect_enemigo.h);
+    SDL_QueryTexture(textura,NULL,NULL,&rectangulo.w,&rectangulo.h);
 
-    rect_enemigo.x = 400;
-    rect_enemigo.y = 200;
+    rectangulo.x = 640 - rectangulo.w;
+    rectangulo.y = 200;
 }
 
 Enemigo2::~Enemigo2()
@@ -19,15 +20,48 @@ Enemigo2::~Enemigo2()
 
 void Enemigo2::logica()
 {
-    if(rect_enemigo.y>=400)
-        yStar*=-1;
-    else if(rect_enemigo.y<=50)
-        yStar*=-1;
-    rect_enemigo.y+=yStar;
+    for(list<Bala*>::iterator i=balas.begin();
+        i!=balas.end();
+        i++)
+        (*i)->logica();
 
+    if(rectangulo.y>=(480 - rectangulo.h))
+        yStar*=-1;
+    else if(rectangulo.y<0)
+        yStar*=-1;
+    rectangulo.y+=yStar;
+
+    if(frame%15==0)
+        {
+            disparar2();
+        }
+    if(frame!=0 && frame<10000)
+        if(frame%1000==0)
+            {
+                velocidad_bala+=0.3;
+            }
+    frame++;
 }
 
 void Enemigo2::dibujar()
 {
-    SDL_RenderCopy(renderer, enemigo, NULL, &rect_enemigo);
+    for(list<Bala*>::iterator i=balas.begin();
+            i!=balas.end();
+            i++)
+    {
+        SDL_RenderCopy(renderer, bala, NULL, &(*i)->rect_bala);
+    }
+    SDL_RenderCopy(renderer, textura, NULL, &rectangulo);
 }
+
+void Enemigo2::disparar2()
+	{
+        SDL_Rect temp;
+        SDL_QueryTexture(bala,NULL,NULL,&temp.w,&temp.h);
+        temp.x = rectangulo.x + rectangulo.w*0.5 - temp.w*0.5;
+        temp.y = rectangulo.y + rectangulo.h*0.5 - temp.h;
+        Bala *b = new Bala(renderer,bala,temp);
+        b->velocidad_x=-velocidad_bala;
+        b->velocidad_y=0;
+        balas.push_back(b);
+	}

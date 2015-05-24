@@ -4,12 +4,13 @@ Enemigo3::Enemigo3(SDL_Renderer *renderer)
 	{
 	this->renderer=renderer;
 
-	enemigo = IMG_LoadTexture(renderer, "Enemigo3.png");
+	textura = IMG_LoadTexture(renderer, "Enemigo3.png");
+	bala = IMG_LoadTexture(renderer, "bala1.png");
 
-	SDL_QueryTexture(enemigo,NULL,NULL,&rect_enemigo.w,&rect_enemigo.h);
+	SDL_QueryTexture(textura,NULL,NULL,&rectangulo.w,&rectangulo.h);
 
-	rect_enemigo.x = 400;
-	rect_enemigo.y = 100;
+	rectangulo.x = 400;
+	rectangulo.y = 100;
 	}
 
 Enemigo3::~Enemigo3()
@@ -20,21 +21,58 @@ Enemigo3::~Enemigo3()
 
 void Enemigo3::logica()
 	{
-        if(rect_enemigo.y<50)
+        for(list<Bala*>::iterator i=balas.begin();
+        i!=balas.end();
+        i++)
+        (*i)->logica();
+
+        if(rectangulo.y<50)
             yTemp*=-1;
-        else if(rect_enemigo.y>150)
+        else if(rectangulo.y>150)
             yTemp*=-1;
 
-        if(rect_enemigo.x<50)
+        if(rectangulo.x<50)
             xTemp*=-1;
-        else if(rect_enemigo.x>400)
+        else if(rectangulo.x>400)
             xTemp*=-1;
 
-        rect_enemigo.x+=xTemp;
-        rect_enemigo.y+=yTemp;
+        rectangulo.x+=xTemp;
+        rectangulo.y+=yTemp;
+
+        if(frame%15==0)
+        {
+            disparar2();
+        }
+        if(frame!=0 && frame<10000)
+            if(frame%1000==0)
+                {
+                    velocidad_bala+=0.3;
+                }
+        frame++;
 	}
 
 void Enemigo3::dibujar()
 	{
-        SDL_RenderCopy(renderer, enemigo, NULL, &rect_enemigo);
+        for(list<Bala*>::iterator i=balas.begin();
+            i!=balas.end();
+            i++)
+        {
+            SDL_RenderCopy(renderer, bala, NULL, &(*i)->rect_bala);
+        }
+        SDL_RenderCopy(renderer, textura, NULL, &rectangulo);
+	}
+
+void Enemigo3::disparar2()
+	{
+        SDL_Rect temp;
+        SDL_QueryTexture(bala,NULL,NULL,&temp.w,&temp.h);
+        temp.x = rectangulo.x + rectangulo.w*0.5 - temp.w*0.5;
+        temp.y = rectangulo.y + rectangulo.h*0.5 - temp.h;
+        Bala *b = new Bala(renderer,bala,temp);
+        b->velocidad_x=0;
+        if(yTemp<0)
+            b->velocidad_y=-velocidad_bala;
+        else if(yTemp>0)
+            b->velocidad_y=velocidad_bala;
+        balas.push_back(b);
 	}

@@ -7,10 +7,14 @@
 class Nave : public Personaje
 {
     public:
-        float nave_x = rect_nave.x;
-        float nave_y = rect_nave.y;
+        float nave_x = rectangulo.x;
+        float nave_y = rectangulo.y;
+        float velocidad;//, velocidad_bala;
+        void (*perdi)( char* msg );
 
-        Nave(SDL_Renderer *renderer);
+        list<Personaje*> *actores;
+
+        Nave(SDL_Renderer *renderer,list<Personaje*> *actores,void (*detener)( char* args ));
         virtual ~Nave();
 
         void logica();

@@ -563,7 +563,7 @@
 	<iostream>
 	<list>
 
-1432269531 source:/home/kenystev/keny++/Shooter/main.cpp
+1432421662 source:/home/kenystev/keny++/Shooter/main.cpp
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<iostream>
@@ -574,39 +574,40 @@
 	"Enemigo2.h"
 	"Enemigo3.h"
 
-1432270359 source:/home/kenystev/keny++/Shooter/Nave.cpp
+1432419920 source:/home/kenystev/keny++/Shooter/Nave.cpp
 	"Nave.h"
 
-1431924734 /home/kenystev/keny++/Shooter/Nave.h
+1432419698 /home/kenystev/keny++/Shooter/Nave.h
 	"Personaje.h"
 
-1431922207 /home/kenystev/keny++/Shooter/Personaje.h
+1432414719 /home/kenystev/keny++/Shooter/Personaje.h
 	<iostream>
 	<list>
+	<vector>
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1431740477 source:/home/kenystev/keny++/Shooter/Personaje.cpp
+1432413271 source:/home/kenystev/keny++/Shooter/Personaje.cpp
 	"Personaje.h"
 
-1432270809 source:/home/kenystev/keny++/Shooter/Enemigo1.cpp
+1432416652 source:/home/kenystev/keny++/Shooter/Enemigo1.cpp
 	"Enemigo1.h"
 
-1432244816 /home/kenystev/keny++/Shooter/Enemigo1.h
+1432416081 /home/kenystev/keny++/Shooter/Enemigo1.h
 	"Personaje.h"
 	"math.h"
 
-1432270809 source:/home/kenystev/keny++/Shooter/Enemigo2.cpp
+1432416986 source:/home/kenystev/keny++/Shooter/Enemigo2.cpp
 	"Enemigo2.h"
 
-1432244816 /home/kenystev/keny++/Shooter/Enemigo2.h
+1432414598 /home/kenystev/keny++/Shooter/Enemigo2.h
 	"Personaje.h"
 	"math.h"
 
-1432270809 source:/home/kenystev/keny++/Shooter/Enemigo3.cpp
+1432417440 source:/home/kenystev/keny++/Shooter/Enemigo3.cpp
 	"Enemigo3.h"
 
-1432269671 /home/kenystev/keny++/Shooter/Enemigo3.h
+1432417440 /home/kenystev/keny++/Shooter/Enemigo3.h
 	"Personaje.h"
 	"math.h"
 

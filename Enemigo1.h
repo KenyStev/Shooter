@@ -7,13 +7,16 @@
 class Enemigo1 : public Personaje
 {
     public:
-        int xStar = 5;
-        int yStar = 200;
+        float xStar = 5;
+        float yStar = 200;
+        float velocidad_bala = 2;
         Enemigo1(SDL_Renderer *renderer);
         virtual ~Enemigo1();
 
         void logica();
         void dibujar();
+
+        void disparar2();
     protected:
     private:
 };
