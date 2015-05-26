@@ -38,19 +38,22 @@ void init(char* message)
 
 void generar()
 {
-    if(frame%150==0)
+    if(!pausado)
     {
-        actores.push_back(new Enemigo1(renderer));
+        if(frame%150==0)
+        {
+            actores.push_back(new Enemigo1(renderer));
+        }
+        if(frame%180==0)
+        {
+            actores.push_back(new Enemigo2(renderer));
+        }
+        if(frame%170==0)
+        {
+            actores.push_back(new Enemigo3(renderer));
+        }
+        frame++;
     }
-    if(frame%180==0)
-    {
-        actores.push_back(new Enemigo2(renderer));
-    }
-    if(frame%170==0)
-    {
-        actores.push_back(new Enemigo3(renderer));
-    }
-    frame++;
 }
 
 int main( int argc, char* args[] )
