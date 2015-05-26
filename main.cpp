@@ -90,27 +90,6 @@ int main( int argc, char* args[] )
 	rect_pausa.w = w;
 	rect_pausa.h = h;
 
-//    nave = IMG_LoadTexture(renderer, "nave.png");
-//    SDL_QueryTexture(nave, NULL, NULL, &w, &h);
-//    rect_nave.x = 0;
-//    rect_nave.y = 100;
-//    rect_nave.w = w;
-//    rect_nave.h = h;
-//
-//    enemigo = IMG_LoadTexture(renderer, "enemigo.png");
-//    SDL_QueryTexture(enemigo,NULL,NULL,&w,&h);
-//    rect_enemigo.x = 400;
-//    rect_enemigo.y = 200;
-//    rect_enemigo.w = w;
-//    rect_enemigo.h = h;
-//
-//    bala = IMG_LoadTexture(renderer, "bala.png");
-//    SDL_QueryTexture(bala,NULL,NULL,&w,&h);
-//    rect_bala.x = 100;
-//    rect_bala.y = 200;
-//    rect_bala.w = w;
-//    rect_bala.h = h;
-
 //    list<Personaje*> actores;
 	actores.push_back(new Enemigo1(renderer));
 	actores.push_back(new Enemigo2(renderer));
@@ -145,56 +124,6 @@ int main( int argc, char* args[] )
 					}
 			estado_anterior = estado_boton;
 			//Termina el control del estado del boton
-
-//        if(estaPresionada[SDL_SCANCODE_A])
-//            {
-//                pausado=false;
-//            }
-
-//        const Uint8* estaPresionada = SDL_GetKeyboardState( NULL );
-//        float velocidad = 1;
-//        if(estaPresionada[ SDL_SCANCODE_LSHIFT ])
-//        {
-//            velocidad = 0.5;
-//        }
-//
-//        if( estaPresionada[ SDL_SCANCODE_UP ] )
-//        {
-//            personaje_y-=velocidad;
-//        }
-//        if( estaPresionada[ SDL_SCANCODE_DOWN ] )
-//        {
-//            personaje_y+=velocidad;
-//        }
-//        if( estaPresionada[ SDL_SCANCODE_LEFT ] )
-//        {
-//            personaje_x-=velocidad;
-//        }
-//        if( estaPresionada[ SDL_SCANCODE_RIGHT ] )
-//        {
-//            personaje_x+=velocidad;
-//        }
-//        if( estaPresionada[ SDL_SCANCODE_Z ] )
-//        {
-//            SDL_Rect *temp = new SDL_Rect;
-//            temp->w = rect_bala.w;
-//            temp->h = rect_bala.h;
-//            temp->x =personaje_x;
-//            temp->y =personaje_y;
-//            balas.push_back(temp);
-//        }
-//        rect_nave.x=personaje_x;
-//        rect_nave.y=personaje_y;
-//
-//        enemigo_y+=1;
-//        if(enemigo_y>100)
-//            enemigo_y=0;
-//
-//        rect_enemigo.y = enemigo_y;
-//
-//        rect_bala.y++;
-
-
 
 			SDL_RenderCopy(renderer, background, NULL, &rect_background);
 //        SDL_RenderCopy(renderer, enemigo, NULL, &rect_enemigo);
