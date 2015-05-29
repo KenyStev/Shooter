@@ -177,6 +177,15 @@ void Nave::logica()
 //        }
 //    }
 
+    for(list<Bala*>::iterator j=balas.begin();
+            j!=balas.end();
+            j++)
+            {
+                if((*j)->rect_bala.x>640)
+                balas.erase(j);
+                break;
+            }
+
     frame++;
 }
 

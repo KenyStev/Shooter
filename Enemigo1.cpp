@@ -41,6 +41,17 @@ void Enemigo1::logica()
                 xStar++;
                 velocidad_bala+=0.2;
             }
+
+    for(list<Bala*>::iterator i=balas.begin();
+        i!=balas.end();
+        i++)
+        {
+            if((*i)->rect_bala.y<0)
+            {
+                balas.erase(i);
+                break;
+            }
+        }
     frame++;
 }
 

@@ -61,7 +61,7 @@ class Personaje
         SDL_Texture *bala, *textura;
         SDL_Rect rectangulo;
         //NEW
-        list<SDL_Rect*>Balas;
+//        list<SDL_Rect*>Balas;
         int frame=0;
 
         list<Bala*>balas;

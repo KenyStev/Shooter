@@ -48,6 +48,21 @@ void Enemigo3::logica()
                 {
                     velocidad_bala+=0.3;
                 }
+
+        for(list<Bala*>::iterator i=balas.begin();
+        i!=balas.end();
+        i++)
+        {
+            if((*i)->rect_bala.y<0)
+            {
+                balas.erase(i);
+                break;
+            }else if((*i)->rect_bala.y>480)
+            {
+                balas.erase(i);
+                break;
+            }
+        }
         frame++;
 	}
 
